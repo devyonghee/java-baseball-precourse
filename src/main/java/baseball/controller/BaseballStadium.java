@@ -2,13 +2,13 @@ package baseball.controller;
 
 import baseball.BaseBallRule;
 import baseball.controller.dto.Score;
-import baseball.domain.Batter;
-import baseball.domain.Pitcher;
-import baseball.domain.concept.ConceptGuideDecorator;
-import baseball.domain.concept.RandomConcept;
-import baseball.domain.concept.UserInputConcept;
-import baseball.domain.tool.Balls;
-import baseball.domain.tool.HitBalls;
+import baseball.model.Batter;
+import baseball.model.Pitcher;
+import baseball.model.concept.ConceptGuideDecorator;
+import baseball.model.concept.RandomConcept;
+import baseball.model.concept.UserInputConcept;
+import baseball.model.tool.Balls;
+import baseball.model.tool.HitBalls;
 import baseball.view.Display;
 
 public final class BaseballStadium implements Stadium {
