@@ -13,7 +13,7 @@ public class Application {
         Stadium stadium = BaseballStadium.of(BASEBALL_GAME_RULE, Billboard.from(System.out));
         do {
             stadium.playBall();
-            moderator.printEndGame();
+            moderator.guideEndGame();
         } while (moderator.continueGame());
     }
 }

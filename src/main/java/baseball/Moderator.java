@@ -33,7 +33,7 @@ final class Moderator {
         return CONTINUE_GAME_FLAG.equals(input);
     }
 
-    void printEndGame() {
+    void guideEndGame() {
         printStream.printf(END_GAME_SENTENCE_FORMAT, numberCount);
         printStream.println();
     }
