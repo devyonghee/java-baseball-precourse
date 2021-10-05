@@ -4,7 +4,7 @@ import java.io.PrintStream;
 import java.util.Arrays;
 import nextstep.utils.Console;
 
-public final class Moderator {
+final class Moderator {
 
     private static final String END_GAME_SENTENCE_FORMAT = "%d개의 숫자를 모두 맞히셨습니다! 게임 끝";
     private static final String INVALID_INPUT_SENTENCE = "잘못된 입력입니다. 다시 입력해주세요.";
@@ -20,11 +20,11 @@ public final class Moderator {
         this.numberCount = numberCount;
     }
 
-    public static Moderator of(PrintStream printStream, int numberCount) {
+    static Moderator of(PrintStream printStream, int numberCount) {
         return new Moderator(printStream, numberCount);
     }
 
-    public boolean continueGame() {
+    boolean continueGame() {
         printStream.println(CONTINUE_ASK_GAME_SENTENCE);
         String input = Console.readLine();
         if (isInvalidInput(input)) {
@@ -33,7 +33,7 @@ public final class Moderator {
         return CONTINUE_GAME_FLAG.equals(input);
     }
 
-    public void printEndGame() {
+    void printEndGame() {
         printStream.printf(END_GAME_SENTENCE_FORMAT, numberCount);
         printStream.println();
     }
