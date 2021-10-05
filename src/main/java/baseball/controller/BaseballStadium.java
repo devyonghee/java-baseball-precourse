@@ -40,13 +40,17 @@ public final class BaseballStadium implements Stadium {
 
     private boolean isNotAllStrike(Balls balls, Batter batter) {
         try {
-            HitBalls hitBalls = batter.wieldBats().hit(balls);
+            HitBalls hitBalls = hitBalls(balls, batter);
             display.exposure(createScore(hitBalls));
             return rule.isDifferentNumberCountFrom(hitBalls.getStrikeCount());
         } catch (IllegalArgumentException exception) {
             display.printError();
             return true;
         }
+    }
+
+    private HitBalls hitBalls(Balls balls, Batter batter) {
+        return batter.wieldBats().hit(balls);
     }
 
     private Score createScore(HitBalls hitBalls) {
