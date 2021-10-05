@@ -32,26 +32,26 @@ public final class BaseballStadium implements Stadium {
         Batter batter = Batter.from(
                 ConceptGuideDecorator.from(UserInputConcept.from(rule), System.out, USER_INPUT_GUIDE));
 
-        Score score;
-        do {
-            score = hitBalls(batter, balls);
-            display.exposure(score);
-        } while (score.isNotFinish());
+        boolean isNotAllStrike = true;
+        while (isNotAllStrike) {
+            isNotAllStrike = isNotAllStrike(balls, batter);
+        }
     }
 
-    private Score hitBalls(Batter batter, Balls balls) {
+    private boolean isNotAllStrike(Balls balls, Batter batter) {
         try {
-            return createScore(batter.wieldBats().hit(balls));
+            HitBalls hitBalls = batter.wieldBats().hit(balls);
+            display.exposure(createScore(hitBalls));
+            return rule.isDifferentNumberCountFrom(hitBalls.getStrikeCount());
         } catch (IllegalArgumentException exception) {
-            return Score.ERROR;
+            display.printError();
+            return true;
         }
     }
 
     private Score createScore(HitBalls hitBalls) {
         return Score.from(
                 hitBalls.getStrikeCount(),
-                hitBalls.getBallCount(),
-                rule.isDifferentNumberCountFrom(hitBalls.getStrikeCount())
-        );
+                hitBalls.getBallCount());
     }
 }

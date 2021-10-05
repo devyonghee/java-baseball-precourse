@@ -23,16 +23,17 @@ public final class Billboard implements Display<Score> {
 
     @Override
     public void exposure(Score score) {
-        if (score.hasError()) {
-            this.display.println(ERROR_SENTENCE);
-            return;
-        }
         if (score.isNothing()) {
             this.display.println(NOTHING_SENTENCE);
             return;
         }
         printScore(score);
         this.display.println();
+    }
+
+    @Override
+    public void printError() {
+        this.display.println(ERROR_SENTENCE);
     }
 
     private void printScore(Score score) {

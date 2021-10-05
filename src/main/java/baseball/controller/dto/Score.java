@@ -2,30 +2,18 @@ package baseball.controller.dto;
 
 public final class Score {
 
-    public static final Score ERROR = new Score(0, 0, true, true);
+    public static final Score EMPTY = new Score(0, 0);
 
     private final int strikeCount;
     private final int ballCount;
-    private final boolean isNotFinished;
-    private final boolean hasError;
 
-    private Score(int strikeCount, int ballCount, boolean isNotFinished, boolean hasError) {
+    private Score(int strikeCount, int ballCount) {
         this.strikeCount = strikeCount;
         this.ballCount = ballCount;
-        this.isNotFinished = isNotFinished;
-        this.hasError = hasError;
     }
 
-    private Score(int strikeCount, int ballCount, boolean isNotFinished) {
-        this(strikeCount, ballCount, isNotFinished, false);
-    }
-
-    public static Score from(int strikeCount, int ballCount, boolean isNotFinished) {
-        return new Score(strikeCount, ballCount, isNotFinished);
-    }
-
-    public boolean isNotFinish() {
-        return isNotFinished;
+    public static Score from(int strikeCount, int ballCount) {
+        return new Score(strikeCount, ballCount);
     }
 
     public int getBallCount() {
@@ -46,10 +34,6 @@ public final class Score {
 
     public boolean hasBall() {
         return ballCount > 0;
-    }
-
-    public boolean hasError() {
-        return hasError;
     }
 
     public boolean isNothing() {
