@@ -77,9 +77,9 @@ public final class UserInputConcept implements Concept {
 		return input.split("");
 	}
 
-	private int parseInt(String s) {
+	private int parseInt(String string) {
 		try {
-			return Integer.parseInt(s);
+			return Integer.parseInt(string);
 		} catch (NumberFormatException exception) {
 			throw new IllegalArgumentException("must be entered only numbers", exception);
 		}

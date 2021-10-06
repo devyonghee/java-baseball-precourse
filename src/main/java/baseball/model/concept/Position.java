@@ -15,14 +15,14 @@ public final class Position {
 	}
 
 	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
+	public boolean equals(Object target) {
+		if (this == target) {
 			return true;
 		}
-		if (o == null || getClass() != o.getClass()) {
+		if (target == null || getClass() != target.getClass()) {
 			return false;
 		}
-		Position position = (Position)o;
+		Position position = (Position)target;
 		return value == position.value;
 	}
 
