@@ -49,7 +49,7 @@ class UserInputConceptTest {
     }
 
     @ParameterizedTest
-    @CsvSource({",must be entered numbers", "1,number count", "111,number count", "012,must be entered", "1 2 3,must be entered only numbers",
+    @CsvSource({",must be entered numbers", "1,number count", "111,non-duplicate numbers", "012,must be entered", "1 2 3,must be entered only numbers",
             "12345678,number count", "abc,must be entered only numbers", "잘못된값,must be entered only numbers"})
     @DisplayName("규칙에 맞지 않는 사용자 입력 포지션 생성")
     void thinkPositions_invalidInput_illegalArgumentException(String invalidInput, String expectedMessage) {
