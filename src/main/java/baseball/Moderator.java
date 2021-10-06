@@ -7,7 +7,7 @@ import nextstep.utils.Console;
 final class Moderator {
 
     private static final String END_GAME_SENTENCE_FORMAT = "%d개의 숫자를 모두 맞히셨습니다! 게임 끝";
-    private static final String INVALID_INPUT_SENTENCE = "잘못된 입력입니다. 다시 입력해주세요.";
+    private static final String INVALID_INPUT_SENTENCE = "[ERROR] 잘못된 입력입니다. 다시 입력해주세요.";
     private static final String CONTINUE_GAME_FLAG = "1";
     private static final String END_GAME_FLAG = "2";
     private static final String CONTINUE_ASK_GAME_SENTENCE = String.format("게임을 새로 시작하려면 %s, 종료하려면 %s를 입력하세요.", CONTINUE_GAME_FLAG, END_GAME_FLAG);

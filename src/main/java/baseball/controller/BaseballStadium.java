@@ -47,7 +47,7 @@ public final class BaseballStadium implements Stadium {
             display.exposure(createScore(hitBalls));
             return rule.isDifferentNumberCountFrom(hitBalls.getStrikeCount());
         } catch (IllegalArgumentException exception) {
-            display.printError();
+            display.printError(exception.getMessage());
             return true;
         }
     }

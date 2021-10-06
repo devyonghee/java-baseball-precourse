@@ -11,7 +11,9 @@ public interface Display<T> {
 
     /**
      * <p>에러가 발생했을 경우 에러 문구를 출력합니다.</p>
+     *
+     * @param message 에러 메세지
      */
-    void printError();
+    void printError(String message);
 
 }

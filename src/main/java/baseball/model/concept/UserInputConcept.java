@@ -42,10 +42,22 @@ public final class UserInputConcept implements Concept {
         LinkedHashSet<Position> positions = new LinkedHashSet<>();
         for (String input : inputs) {
             int number = parseInt(input);
-            validateRange(number);
+            validate(positions, number);
             positions.add(Position.from(number));
         }
         return positions;
+    }
+
+    private void validate(Collection<Position> positions, int number) {
+        validateRange(number);
+        validateExists(positions, number);
+    }
+
+    private void validateExists(Collection<Position> positions, int number) {
+        if (positions.contains(Position.from(number))) {
+            throw new IllegalArgumentException(
+                    String.format("must be entered non-duplicate numbers, %d is already entered", number));
+        }
     }
 
     private void validateRange(int number) {
