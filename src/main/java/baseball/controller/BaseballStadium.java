@@ -13,52 +13,52 @@ import baseball.view.Display;
 
 public final class BaseballStadium implements Stadium {
 
-    private static final String USER_INPUT_GUIDE = "숫자를 입력해주세요 : ";
-    private final BaseBallRule rule;
-    private final Display<Score> display;
+	private static final String USER_INPUT_GUIDE = "숫자를 입력해주세요 : ";
+	private final BaseBallRule rule;
+	private final Display<Score> display;
 
-    private BaseballStadium(BaseBallRule rule, Display<Score> display) {
-        this.rule = rule;
-        this.display = display;
-    }
+	private BaseballStadium(BaseBallRule rule, Display<Score> display) {
+		this.rule = rule;
+		this.display = display;
+	}
 
-    public static BaseballStadium of(BaseBallRule rule, Display<Score> display) {
-        return new BaseballStadium(rule, display);
-    }
+	public static BaseballStadium of(BaseBallRule rule, Display<Score> display) {
+		return new BaseballStadium(rule, display);
+	}
 
-    /**
-     * <p>입력된 규칙에 따라 야구게임을 시작합니다.</p>
-     */
-    @Override
-    public void playBall() {
-        Balls balls = Pitcher.from(RandomConcept.from(rule)).throwBalls();
-        Batter batter = Batter.from(
-                ConceptGuideDecorator.from(UserInputConcept.from(rule), System.out, USER_INPUT_GUIDE));
+	/**
+	 * <p>입력된 규칙에 따라 야구게임을 시작합니다.</p>
+	 */
+	@Override
+	public void playBall() {
+		Balls balls = Pitcher.from(RandomConcept.from(rule)).throwBalls();
+		Batter batter = Batter.from(
+			ConceptGuideDecorator.from(UserInputConcept.from(rule), System.out, USER_INPUT_GUIDE));
 
-        boolean isNotAllStrike = true;
-        while (isNotAllStrike) {
-            isNotAllStrike = isNotAllStrike(balls, batter);
-        }
-    }
+		boolean isNotAllStrike = true;
+		while (isNotAllStrike) {
+			isNotAllStrike = isNotAllStrike(balls, batter);
+		}
+	}
 
-    private boolean isNotAllStrike(Balls balls, Batter batter) {
-        try {
-            HitBalls hitBalls = hitBalls(balls, batter);
-            display.exposure(createScore(hitBalls));
-            return rule.isDifferentNumberCountFrom(hitBalls.getStrikeCount());
-        } catch (IllegalArgumentException exception) {
-            display.printError(exception.getMessage());
-            return true;
-        }
-    }
+	private boolean isNotAllStrike(Balls balls, Batter batter) {
+		try {
+			HitBalls hitBalls = hitBalls(balls, batter);
+			display.exposure(createScore(hitBalls));
+			return rule.isDifferentNumberCountFrom(hitBalls.getStrikeCount());
+		} catch (IllegalArgumentException exception) {
+			display.printError(exception.getMessage());
+			return true;
+		}
+	}
 
-    private HitBalls hitBalls(Balls balls, Batter batter) {
-        return batter.wieldBats().hit(balls);
-    }
+	private HitBalls hitBalls(Balls balls, Batter batter) {
+		return batter.wieldBats().hit(balls);
+	}
 
-    private Score createScore(HitBalls hitBalls) {
-        return Score.from(
-                hitBalls.getStrikeCount(),
-                hitBalls.getBallCount());
-    }
+	private Score createScore(HitBalls hitBalls) {
+		return Score.from(
+			hitBalls.getStrikeCount(),
+			hitBalls.getBallCount());
+	}
 }
