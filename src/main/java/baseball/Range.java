@@ -18,19 +18,19 @@ public final class Range {
 		return new Range(min, max);
 	}
 
-	public boolean isOut(int number) {
+	boolean isOut(int number) {
 		return isLessThanMin(number) || isOverThanMax(number);
 	}
 
-	public int getMin() {
+	int getMin() {
 		return min;
 	}
 
-	public int size() {
+	int size() {
 		return max - min + 1;
 	}
 
-	public int getMax() {
+	int getMax() {
 		return max;
 	}
 
