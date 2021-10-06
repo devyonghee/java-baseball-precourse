@@ -35,6 +35,7 @@ final class Moderator {
 		printStream.println(CONTINUE_ASK_GAME_SENTENCE);
 		String input = Console.readLine();
 		if (isInvalidInput(input)) {
+			printStream.println(INVALID_INPUT_SENTENCE);
 			return continueGame();
 		}
 		return CONTINUE_GAME_FLAG.equals(input);
@@ -55,10 +56,6 @@ final class Moderator {
 	}
 
 	private boolean isInvalidInput(String readLine) {
-		if (Arrays.asList(CONTINUE_GAME_FLAG, END_GAME_FLAG).contains(readLine)) {
-			return false;
-		}
-		printStream.println(INVALID_INPUT_SENTENCE);
-		return true;
+		return !Arrays.asList(CONTINUE_GAME_FLAG, END_GAME_FLAG).contains(readLine);
 	}
 }
