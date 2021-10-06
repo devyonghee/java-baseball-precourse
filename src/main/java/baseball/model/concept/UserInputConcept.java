@@ -34,7 +34,7 @@ public final class UserInputConcept implements Concept {
     private void validateSize(LinkedHashSet<Position> positions) {
         if (rule.isDifferentNumberCountFrom(positions.size())) {
             throw new IllegalArgumentException(
-                    String.format("must enter %d number count, but entered number count is %d", rule.getNumberCount(), positions.size()));
+                    String.format("must be entered %d number count, but entered number count is %d", rule.getNumberCount(), positions.size()));
         }
     }
 
