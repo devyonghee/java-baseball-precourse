@@ -44,7 +44,11 @@ class ApplicationTest extends NSTest {
             mockRandoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
                     .thenReturn(2, 1, 9);
             run("잘못된입력", "131", "9", "12345", "", "219", "2");
-            verify("[ERROR]", "[ERROR]", "[ERROR]", "[ERROR]", "[ERROR]", "게임 끝");
+            verify("[ERROR] must be entered only numbers",
+                    "[ERROR] must be entered non-duplicate numbers",
+                    "[ERROR] must be entered 3 number count",
+                    "[ERROR] must be entered numbers",
+                    "게임 끝");
         }
     }
 
@@ -64,7 +68,7 @@ class ApplicationTest extends NSTest {
             mockRandoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
                     .thenReturn(7, 1, 3);
             run("713", "3", "잘못된 입력", "2");
-            verify("게임 끝", "[ERROR] 잘못된 입력", "게임을 새로 시작하려면", "[ERROR] 잘못된 입력", "게임을 새로 시작하려면");
+            verify("게임 끝", "[ERROR] 잘못된 입력", "게임을 새로 시작하려면");
         }
     }
 
