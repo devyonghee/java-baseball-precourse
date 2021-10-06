@@ -26,6 +26,9 @@ public final class BaseballStadium implements Stadium {
         return new BaseballStadium(rule, display);
     }
 
+    /**
+     * <p>입력된 규칙에 따라 야구게임을 시작합니다.</p>
+     */
     @Override
     public void playBall() {
         Balls balls = Pitcher.from(RandomConcept.from(rule)).throwBalls();

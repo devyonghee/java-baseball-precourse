@@ -22,6 +22,11 @@ public final class ConceptGuideDecorator implements Concept {
         return new ConceptGuideDecorator(concept, printStream, guide);
     }
 
+    /**
+     * <p>포지션을 생성하기전 필요한 문구를 출력합니다.</p>
+     *
+     * @return {@link Concept#thinkPositions()}
+     */
     @Override
     public Collection<Position> thinkPositions() {
         printStream.print(guide);

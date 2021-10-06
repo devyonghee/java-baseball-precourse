@@ -9,7 +9,7 @@ public final class UserInputConcept implements Concept {
 
     private final BaseBallRule rule;
 
-    public UserInputConcept(BaseBallRule rule) {
+    private UserInputConcept(BaseBallRule rule) {
         validate(rule);
         this.rule = rule;
     }
@@ -18,6 +18,12 @@ public final class UserInputConcept implements Concept {
         return new UserInputConcept(rule);
     }
 
+    /**
+     * <p>사용자가 입력한 값을 통해 포지션 콜렉션을 반환한다.</p>
+     *
+     * @return 포지션 리스트
+     * @throws IllegalArgumentException 사용자가 입력한 값이 규칙에 맞지 않는 경우 반환
+     */
     @Override
     public Collection<Position> thinkPositions() {
         LinkedHashSet<Position> positions = getPositions(getSplitInputs(Console.readLine()));

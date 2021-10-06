@@ -21,6 +21,11 @@ public final class Billboard implements Display<Score> {
         return new Billboard(display);
     }
 
+    /**
+     * <p>스코어의 정보를 출력합니다.</p>
+     *
+     * @param score 출력할 점수
+     */
     @Override
     public void exposure(Score score) {
         if (score.isNothing()) {

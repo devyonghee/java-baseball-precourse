@@ -13,6 +13,11 @@ final class HitBall {
         return new HitBall(status);
     }
 
+    /**
+     * <p>맞은 공의 상태를 세기 위해 상태를 반환합니다.</p>
+     *
+     * @return 맞은 상태
+     */
     HitStatus getStatus() {
         return status;
     }

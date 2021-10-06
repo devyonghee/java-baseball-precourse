@@ -24,6 +24,11 @@ final class Moderator {
         return new Moderator(printStream, numberCount);
     }
 
+    /**
+     * <p>게임을 계속 진행하는지 사용자 입력을 받고 답변을 판단합니다.</p>
+     *
+     * @return 게임 진행 여부
+     */
     boolean continueGame() {
         printStream.println(CONTINUE_ASK_GAME_SENTENCE);
         String input = Console.readLine();
@@ -33,6 +38,9 @@ final class Moderator {
         return CONTINUE_GAME_FLAG.equals(input);
     }
 
+    /**
+     * <p>게임이 끝났다는 안내 문구를 출력합니다.</p>
+     */
     void guideEndGame() {
         printStream.printf(END_GAME_SENTENCE_FORMAT, numberCount);
         printStream.println();

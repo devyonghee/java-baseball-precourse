@@ -20,6 +20,11 @@ public final class Batter implements Player {
         return new Batter(concept);
     }
 
+    /**
+     * <p>concept으로부터 생성된 포지션을 통해 index 를 부여하고 bats 를 생성합니다.</p>
+     *
+     * @return 순서와 포지션을 가진 배트들
+     */
     public Bats wieldBats() {
         int index = 0;
         Set<Bat> batList = new HashSet<>();

@@ -16,6 +16,12 @@ public final class Bats {
         return new Bats(batList);
     }
 
+    /**
+     * <p>공 리스트에게 상태를 받아 맞은 공들 객체를 반환합니다.</p>
+     *
+     * @param balls 비교할 공들
+     * @return 맞은 상태를 가지고 있는 공들
+     */
     public HitBalls hit(Balls balls) {
         ArrayList<HitBall> hitBalls = new ArrayList<>();
         for (Bat bat : batList) {

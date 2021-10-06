@@ -19,6 +19,12 @@ public final class RandomConcept implements Concept {
         return new RandomConcept(rule);
     }
 
+    /**
+     * <p>랜덤하게 생성된 포지션 콜렉션을 반환한다.</p>
+     * <p>중복 되지 않은 값이 필요한 갯수만큼 만들어질때까지 생성된다.</p>
+     *
+     * @return 포지션 리스트
+     */
     @Override
     public Collection<Position> thinkPositions() {
         Set<Position> positions = new LinkedHashSet<>();

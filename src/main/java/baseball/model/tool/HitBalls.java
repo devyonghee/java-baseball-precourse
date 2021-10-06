@@ -18,13 +18,23 @@ public final class HitBalls {
         return new HitBalls(hitBalls);
     }
 
+    /**
+     * <p>hitBallList 통해 상태별 갯수를 계산하고 스트라이크 갯수를 반환합니다.</p>
+     *
+     * @return 스트라이크 갯수
+     */
     public int getStrikeCount() {
-        checkStatus();
+        checkCount();
         return counts.get(HitStatus.STRIKE);
     }
 
+    /**
+     * <p>hitBallList 통해 상태별 갯수를 계산하고 볼 갯수를 반환합니다.</p>
+     *
+     * @return 볼 갯수
+     */
     public int getBallCount() {
-        checkStatus();
+        checkCount();
         return counts.get(HitStatus.BALL);
     }
 
@@ -34,7 +44,7 @@ public final class HitBalls {
         }
     }
 
-    private void checkStatus() {
+    private void checkCount() {
         if (counts.isEmpty()) {
             calculate();
         }
